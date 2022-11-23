@@ -1,1 +1,1 @@
-# noir.nvim
+# karakurt.nvim
