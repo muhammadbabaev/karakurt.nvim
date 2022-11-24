@@ -197,20 +197,20 @@ local theme = lush(function(injected_functions)
     sym"@float"             { sym"@constant", gui = 'bold' }, -- Float
     sym"@boolean"           { sym"@constant", gui = 'bold' }, -- Boolean
 
-    sym"@function"          { fg = white, gui = 'bold' }, -- Function
+    sym"@function"          { fg = white, gui = 'bold|italic|underline' }, -- Function
     sym"@function.builtin"  { sym"@function" }, -- Special
     sym"@function.macro"    { sym"@function" }, -- Macro
     sym"@parameter"         { fg = white, gui = 'italic' }, -- Identifier
     sym"@method"            { sym"@function" }, -- Function
     sym"@field"             { fg = white }, -- Identifier
     sym"@property"          { fg = white }, -- Identifier
-    sym"@constructor"       { sym"@function" }, -- Special
+    sym"@constructor"       { sym"@function", gui = 'bold|italic' }, -- Special
 
     sym"@conditional"       { fg = white, gui = 'bold' }, -- Conditional
     sym"@repeat"            { fg = white, gui = 'bold' }, -- Repeat
     sym"@label"             { fg = white, gui = 'bold' }, -- Label
     sym"@operator"          { fg = yellow, gui = 'bold' }, -- Operator
-    sym"@keyword"           { fg = white, gui = 'bold|italic|underline' }, -- Keyword
+    sym"@keyword"           { fg = white, gui = 'bold|italic' }, -- Keyword
     sym"@exception"         { fg = white, gui = 'bold' }, -- Exception
     sym"@variable"          { fg = white }, -- Identifier
     -- sym"@namespace"         { }, -- Identifier
@@ -227,6 +227,18 @@ local theme = lush(function(injected_functions)
 
     -- sym"@debug"             { }, -- Debug
     -- sym"@tag"               { }, -- Tag
+    
+    -- -----------------------------------------------------------------------
+    -- --- Haskell:
+    -- -----------------------------------------------------------------------
+    sym"@function.haskell"         { fg = white, gui = 'bold|italic|underline' },
+    sym"@function.builtin.haskell" { sym"@function.haskell" },
+    sym"@function.macro.haskell"   { sym"@function.haskell" },
+    sym"@function.call.haskell"    { sym"@function.haskell", gui = 'bold|italic' },
+
+    sym"@keyword.haskell"          { sym"@function.haskell", gui = 'bold|italic' },
+
+    sym"@include.haskell"          { sym"@keyword.haskell" },
   }
 end)
 
