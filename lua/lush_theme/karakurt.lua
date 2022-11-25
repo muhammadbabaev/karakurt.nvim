@@ -28,6 +28,7 @@ local theme = lush(function(injected_functions)
     Gray      { fg = gray },
     GrayB     { Gray, gui = 'bold' },
     GrayDark  { fg = gray_dark },
+    -- GrayDarkB { GrayDark, gui = 'bold' },
     Red       { fg = red },
     RedB      { Red, gui = 'bold' },
     Pink      { fg = pink },
@@ -37,6 +38,7 @@ local theme = lush(function(injected_functions)
     Green     { fg = green },
     GreenI    { Green, gui = 'italic' },
     GreenDark { fg = green_dark },
+    -- GreenDarkB { GreenDark, gui = 'bold' },
 
 
     -- =======================================================================
@@ -100,10 +102,27 @@ local theme = lush(function(injected_functions)
     -- Winseparator { },
     -- WildMenu     { },
 
+
+    -- -----------------------------------------------------------------------
+    -- --- Netrw:
+    -- -----------------------------------------------------------------------
+    netrwDir      { White },
+    netrwClassify { White },
+    netrwLink     { Yellow },
+    netrwSymLink  { GreenDark },
+    netrwExe      { Red },
+    netrwComment  { GrayB },
+    netrwList     { White },
+    netrwHelpCmd  { YellowB },
+    netrwCmdSep   { GrayB },
+    netrwVersion  { YellowB },
+    netrwHidePat  { Red },
+    -- "Quick Help:" in Comment group (above).
+
     -- -----------------------------------------------------------------------
     -- --- Programming groups:
     -- -----------------------------------------------------------------------
-    -- Comment        { GrayB },
+    Comment        { GrayB },
 
     -- Constant       { Red },
     -- String         { },
