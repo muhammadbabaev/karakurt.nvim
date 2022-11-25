@@ -73,7 +73,7 @@ local theme = lush(function(injected_functions)
     -- MoreMsg      { },
     NonText      { GrayDark },
     Normal       { bg = black, White },
-    NormalFloat  { Normal },
+    NormalFloat  { bg = Normal.bg.lighten(5), White },
     -- NormalNC     { },
     Pmenu        { bg = black.lighten(5), White },
     PmenuSel     { bg = Pmenu.bg.lighten(5), RedB },
