@@ -15,6 +15,33 @@ local green_dark = hsl '#7FE141' -- mix of #60FF60 and #b8bb26 (gruvbox's green)
 local theme = lush(function(injected_functions)
   local sym = injected_functions.sym
   return {
+    -- =======================================================================
+    -- === Fg colors base:
+    -- =======================================================================
+    Black     { fg = black },
+    BlackB    { Black, gui = 'bold' },
+    White     { fg = white },
+    WhiteB    { White, gui = 'bold' },
+    WhiteI    { White, gui = 'italic' },
+    WhiteBI   { White, gui = 'bold|italic' },
+    WhiteBIU  { White, gui = 'bold|italic|underline' },
+    Gray      { fg = gray },
+    GrayB     { Gray, gui = 'bold' },
+    GrayDark  { fg = gray_dark },
+    Red       { fg = red },
+    RedB      { Red, gui = 'bold' },
+    Pink      { fg = pink },
+    PinkB     { Pink, gui = 'bold' },
+    Yellow    { fg = yellow },
+    YellowB   { Yellow, gui = 'bold' },
+    Green     { fg = green },
+    GreenI    { Green, gui = 'italic' },
+    GreenDark { fg = green_dark },
+
+
+    -- =======================================================================
+    -- === VIM's hl groups:
+    -- =======================================================================
     ColorColumn  { bg = black.lighten(5) },
     -- Conceal      { },
     -- Cursor       { },
@@ -22,39 +49,39 @@ local theme = lush(function(injected_functions)
     -- CursorIM     { },
     -- CursorColumn { },
     CursorLine   { bg = black.lighten(5) },
-    Directory    { fg = white, gui = 'bold' },
-    DiffAdd      { bg = black.lighten(5), fg = green_dark },
-    DiffChange   { bg = black.lighten(5), fg = yellow },
-    DiffDelete   { bg = black.lighten(5), fg = red },
+    Directory    { WhiteB },
+    DiffAdd      { bg = black.lighten(5), GreenDark },
+    DiffChange   { bg = black.lighten(5), Yellow },
+    DiffDelete   { bg = black.lighten(5), Red },
     -- DiffText     { },
     -- EndOfBuffer  { },
     -- TermCursor   { },
     -- TermCursorNC { },
-    ErrorMsg     { fg = black, bg = red, gui = 'bold' },
+    ErrorMsg     { bg = red, BlackB },
     -- VertSplit    { },
     -- Folded       { },
     -- FoldColumn   { },
     -- SignColumn   { },
     -- IncSearch    { },
     -- Substitute   { },
-    LineNr       { fg = gray_dark },
-    CursorLineNr { fg = white },
+    LineNr       { GrayDark },
+    CursorLineNr { White },
     MatchParen   { bg = yellow, fg = black.lighten(15) },
-    ModeMsg      { fg = white, gui = 'bold' },
+    ModeMsg      { WhiteB },
     MsgArea      { bg = black },
     -- MsgSeparator { },
     -- MoreMsg      { },
-    NonText      { fg = gray_dark },
-    Normal       { bg = black, fg = white },
+    NonText      { GrayDark },
+    Normal       { bg = black, White },
     NormalFloat  { Normal },
     -- NormalNC     { },
-    Pmenu        { bg = black.lighten(5), fg = white },
-    PmenuSel     { bg = Pmenu.bg.lighten(5), fg = red, gui = 'bold' },
+    Pmenu        { bg = black.lighten(5), White },
+    PmenuSel     { bg = Pmenu.bg.lighten(5), RedB },
     PmenuSbar    { bg = gray_dark },
     PmenuThumb   { bg = gray },
     -- Question     { },
     -- QuickFixLine { },
-    Search       { bg = yellow, fg = black },
+    Search       { bg = yellow, Black },
     -- SpecialKey   { },
     -- SpellBad     { },
     -- SpellCap     { },
@@ -62,10 +89,10 @@ local theme = lush(function(injected_functions)
     -- SpellRare    { },
     -- StatusLine   { },
     -- StatusLineNC { },
-    TabLine      { bg = black.lighten(15) , fg = white, gui = '' },
+    TabLine      { bg = black.lighten(15), White },
     TabLineFill  { bg = black.lighten(15) },
-    TabLineSel   { bg = black, fg = white, gui = 'bold' },
-    Title        { fg = red, gui = 'bold' },
+    TabLineSel   { bg = black, WhiteB },
+    Title        { RedB },
     Visual       { bg = black.lighten(15) },
     -- VisualNOS    { },
     -- WarningMsg   { },
@@ -74,21 +101,21 @@ local theme = lush(function(injected_functions)
     -- WildMenu     { },
 
     -- -----------------------------------------------------------------------
-    -- --- Programming languages:
+    -- --- Programming groups:
     -- -----------------------------------------------------------------------
-    -- Comment        { fg = gray, gui = 'bold' },
+    -- Comment        { GrayB },
 
-    -- Constant       { fg = red },
+    -- Constant       { Red },
     -- String         { },
     -- Character      { },
     -- Number         { },
     -- Boolean        { },
     -- Float          { },
 
-    -- Identifier     { fg = white, gui = 'bold' },
+    -- Identifier     { WhiteB },
     -- Function       { },
 
-    -- Statement      { fg = white, gui = 'bold' },
+    -- Statement      { WhiteB },
     -- Conditional    { }, --   if, then, else, endif, switch, etc.
     -- Repeat         { }, --   for, do, while, etc.
     -- Label          { }, --   case, default, etc.
@@ -96,13 +123,13 @@ local theme = lush(function(injected_functions)
     -- Keyword        { }, --   any other keyword
     -- Exception      { }, --   try, catch, throw
 
-    -- PreProc        { fg = white, gui = 'bold' },
+    -- PreProc        { WhiteB },
     -- Include        { },
     -- Define         { },
     -- Macro          { },
     -- PreCondit      { },
 
-    -- Type           { fg = pink, gui = 'bold' },
+    -- Type           { PinkB },
     -- StorageClass   { },
     -- Structure      { },
     -- Typedef        { },
@@ -156,54 +183,69 @@ local theme = lush(function(injected_functions)
     -- =======================================================================
     -- === Treesitter:
     -- =======================================================================
-    -- sym"@text.literal"      { },
-    -- sym"@text.reference"    { },
-    -- sym"@text.title"        { },
-    -- sym"@text.uri"          { },
-    -- sym"@text.underline"    { },
-    -- sym"@text.todo"         { },
+    -- sym"@text"                  {},
+    sym"@text.strong"           { WhiteB },
+    sym"@text.emphasis"         { WhiteI },
+    -- sym"@text.underline"        {},
+    -- sym"@text.strike"           {},
+    sym"@text.title"            { RedB },
+    -- sym"@text.literal"          { Green },
+    sym"@text.uri"              { GreenI },
+    -- sym"@text.math"             {},
+    -- sym"@text.environment"      {},
+    -- sym"@text.environment.name" {},
+    sym"@text.reference"        { WhiteI },
 
-    sym"@comment" { fg = gray, gui = 'bold' },
+    -- sym"@text.todo"             {},
+    -- sym"@text.note"             {},
+    -- sym"@text.warning"          {},
+    -- sym"@text.danger"           {},
 
-    sym'@punctuation.bracket'   { fg = white }, 
-    sym'@punctuation.delimiter' { fg = white, gui = 'bold' },
+    -- sym"@text.diff.add"         {},
+    -- sym"@text.diff.delete"      {},
 
-    sym"@constant"          { fg = red },
-    sym"@constant.builtin"  { fg = yellow },
-    sym"@constant.macro"    { fg = yellow },
-    sym"@string"            { sym"@constant" },
+
+    sym"@comment" { GrayB },
+
+    sym'@punctuation.bracket'   { White }, 
+    sym'@punctuation.delimiter' { WhiteB },
+
+    sym"@constant"          { Red },
+    sym"@constant.builtin"  { Yellow },
+    sym"@constant.macro"    { Yellow },
+    sym"@string"            { Red },
     sym"@string.special"    { sym"@string" },
-    sym"@string.escape"     { sym"@constant.builtin" },
+    sym"@string.escape"     { Yellow },
     sym"@character"         { sym"@string" },
-    sym"@character.special" { sym"@constant.builtin" },
-    sym"@number"            { sym"@constant", gui = 'bold' },
-    sym"@float"             { sym"@constant", gui = 'bold' },
-    sym"@boolean"           { sym"@constant", gui = 'bold' },
+    sym"@character.special" { Yellow },
+    sym"@number"            { RedB },
+    sym"@float"             { RedB },
+    sym"@boolean"           { RedB },
 
-    sym"@function"          { fg = white, gui = 'bold|italic|underline' },
+    sym"@function"          { WhiteBIU },
     sym"@function.builtin"  { sym"@function" },
     sym"@function.macro"    { sym"@function" },
-    sym"@parameter"         { fg = white, gui = 'italic' },
+    sym"@parameter"         { WhiteI },
     sym"@method"            { sym"@function" },
-    sym"@field"             { fg = white },
-    sym"@property"          { fg = white },
-    sym"@constructor"       { sym"@function", gui = 'bold|italic' },
+    sym"@field"             { White },
+    sym"@property"          { White },
+    sym"@constructor"       { WhiteBI },
 
-    sym"@conditional"       { fg = white, gui = 'bold' },
-    sym"@repeat"            { fg = white, gui = 'bold' },
-    sym"@label"             { fg = white, gui = 'bold' },
-    sym"@operator"          { fg = yellow, gui = 'bold' },
-    sym"@keyword"           { fg = white, gui = 'bold|italic' },
-    sym"@exception"         { fg = white, gui = 'bold' },
-    sym"@variable"          { fg = white },
+    sym"@conditional"       { WhiteB },
+    sym"@repeat"            { WhiteB },
+    sym"@label"             { WhiteB },
+    sym"@operator"          { YellowB },
+    sym"@keyword"           { WhiteBI },
+    sym"@exception"         { WhiteB },
+    sym"@variable"          { White },
     -- sym"@namespace"         { },
 
-    sym"@type"              { fg = white, gui = 'bold' },
+    sym"@type"              { WhiteB },
     sym"@type.definition"   { sym"@type" },
     sym"@storageclass"      { sym"@type" },
     sym"@structure"         { sym"@type" },
 
-    sym"@include"           { fg = white, gui = 'bold|italic' },
+    sym"@include"           { WhiteBI },
     sym"@define"            { sym"@include" },
     sym"@macro"             { sym"@include" },
     sym"@preproc"           { sym"@include" },
@@ -214,14 +256,14 @@ local theme = lush(function(injected_functions)
     -- -----------------------------------------------------------------------
     -- --- Haskell:
     -- -----------------------------------------------------------------------
-    sym"@function.haskell"         { fg = white, gui = 'bold|italic|underline' },
-    sym"@function.builtin.haskell" { sym"@function.haskell" },
-    sym"@function.macro.haskell"   { sym"@function.haskell" },
-    sym"@function.call.haskell"    { sym"@function.haskell", gui = 'bold|italic' },
+    sym"@function.haskell"         { WhiteBIU },
+    sym"@function.builtin.haskell" { WhiteBIU },
+    sym"@function.macro.haskell"   { WhiteBIU },
+    sym"@function.call.haskell"    { WhiteBI },
 
-    sym"@keyword.haskell"          { sym"@function.haskell", gui = 'bold|italic' },
+    sym"@keyword.haskell"          { WhiteBI },
 
-    sym"@include.haskell"          { sym"@keyword.haskell" },
+    sym"@include.haskell"          { WhiteBI },
   }
 end)
 
