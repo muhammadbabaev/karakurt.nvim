@@ -6,7 +6,7 @@ function M.setup(colors, themeConfig)
 	return {
 		Comment = { fg = c.base05, bold = true },
 
-		Constant = { fg = c.red500 },
+		Constant = { fg = c.base10 },
 		String = { fg = c.red500 },
 		Character = { fg = c.yellow500 },
 		Number = { fg = c.red500, bold = true },
