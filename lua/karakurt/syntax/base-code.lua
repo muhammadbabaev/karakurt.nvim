@@ -14,7 +14,7 @@ function M.setup(colors, themeConfig)
 		Float = { fg = c.red500, bold = true },
 
 		Identifier = { fg = c.base10 }, -- a4paper
-		Function = { fg = c.base10, bold = true, italic = true, underline = true },
+		Function = { fg = c.base10, bold = true },
 
 		Statement = { fg = c.base10, bold = true },
 		-- Conditional    { }, --   if, then, else, endif, switch, etc.
@@ -30,7 +30,7 @@ function M.setup(colors, themeConfig)
 		-- Macro          { },
 		-- PreCondit      { },
 
-		Type = { fg = c.base10, bold = true },
+		Type = { fg = c.yellow500, bold = true },
 		StorageClass = { fg = c.red100, bold = true },
 		-- Structure      { },
 		-- Typedef        { },
