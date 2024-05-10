@@ -4,14 +4,14 @@ function M.setup(colors)
 	local c = colors
 
 	return {
-		hsStructure = { fg = c.red500, italic = true },
-		varId = { fg = c.red100 },
+		hsStructure = { fg = c.base10, italic = true },
 		hsVarSym = { fg = c.yellow500, bold = true },
-		hsImport = { fg = c.red500, italic = true },
-		hsImportModuleName = { fg = c.base10, bold = true },
+		hsImport = { link = "hsStructure" },
+		hsImportModuleName = { fg = c.orange500, bold = true, underline = true },
 		hsImportList = { link = "hsVarSym" },
-		ConId = { fg = c.base10, bold = true },
-		hsString = { fg = c.green500 },
+		ConId = { fg = c.vase10, bold = true }, -- in TS it will be red-orange, here it'll be a lot of red-orange
+		varId = { fg = c.base10, bold = true },
+		hsString = { fg = c.red500 },
 		hsCharacter = { link = "hsString" },
 		-- ----------------
 		-- TreeSitter's hl:

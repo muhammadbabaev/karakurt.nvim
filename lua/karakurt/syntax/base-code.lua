@@ -13,7 +13,7 @@ function M.setup(colors, themeConfig)
 		Boolean = { fg = c.red500, bold = true },
 		Float = { fg = c.red500, bold = true },
 
-		Identifier = { fg = c.red100 }, -- a4paper
+		Identifier = { fg = c.base10 }, -- a4paper
 		Function = { fg = c.base10, bold = true, italic = true, underline = true },
 
 		Statement = { fg = c.base10, bold = true },
@@ -35,7 +35,7 @@ function M.setup(colors, themeConfig)
 		-- Structure      { },
 		-- Typedef        { },
 
-		-- Special        { },
+		Special = { fg = c.yellow500 },
 		-- SpecialChar    { },
 		-- Tag            { },
 		-- Delimiter      { },
