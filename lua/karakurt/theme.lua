@@ -12,8 +12,21 @@ function M.setup()
 	local baseCode = require("karakurt.syntax.base-code").setup(theme.colors, theme.config)
 	local haskell = require("karakurt.syntax.langs.haskell").setup(theme.colors)
 	local rust = require("karakurt.syntax.langs.rust").setup(theme.colors)
+	local html = require("karakurt.syntax.langs.html").setup(theme.colors)
+	local javascript = require("karakurt.syntax.langs.javascript").setup(theme.colors)
+	local typescript = require("karakurt.syntax.langs.typescript").setup(theme.colors)
 
-	theme.highlights = vim.tbl_deep_extend("error", theme.highlights, baseEditor, baseCode, haskell, rust)
+	theme.highlights = vim.tbl_deep_extend(
+		"error",
+		theme.highlights,
+		baseEditor,
+		baseCode,
+		haskell,
+		rust,
+		html,
+		javascript,
+		typescript
+	)
 
 	-- print("hello world")
 	-- local count = 0
