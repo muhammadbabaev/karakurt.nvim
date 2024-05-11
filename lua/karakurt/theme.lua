@@ -16,7 +16,10 @@ function M.setup()
 	local css = require("karakurt.syntax.langs.css").setup(theme.colors)
 	local javascript = require("karakurt.syntax.langs.javascript").setup(theme.colors)
 	local typescript = require("karakurt.syntax.langs.typescript").setup(theme.colors)
+	local tsx = require("karakurt.syntax.langs.tsx").setup(theme.colors)
 	local svelteJS = require("karakurt.syntax.langs.svelte-js").setup(theme.colors)
+
+	local bufferline = require("karakurt.syntax.plugins.bufferline").setup(theme.colors)
 
 	theme.highlights = vim.tbl_deep_extend(
 		"error",
@@ -29,7 +32,10 @@ function M.setup()
 		css,
 		javascript,
 		typescript,
-		svelteJS
+		tsx,
+		svelteJS,
+
+		bufferline
 	)
 
 	-- print("hello world")

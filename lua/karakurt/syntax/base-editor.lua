@@ -39,7 +39,8 @@ function M.setup(colors, themeConfig)
 			fg = c.base10,
 		},
 		NormalFloat = {
-			bg = themeConfig.transparent and c.none or c.base02,
+			-- bg = themeConfig.transparent and c.none or c.base02,
+			bg = c.base02,
 			fg = c.base10,
 		},
 		-- NormalNC     { },
