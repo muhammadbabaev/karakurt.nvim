@@ -13,8 +13,10 @@ function M.setup()
 	local haskell = require("karakurt.syntax.langs.haskell").setup(theme.colors)
 	local rust = require("karakurt.syntax.langs.rust").setup(theme.colors)
 	local html = require("karakurt.syntax.langs.html").setup(theme.colors)
+	local css = require("karakurt.syntax.langs.css").setup(theme.colors)
 	local javascript = require("karakurt.syntax.langs.javascript").setup(theme.colors)
 	local typescript = require("karakurt.syntax.langs.typescript").setup(theme.colors)
+	local svelteJS = require("karakurt.syntax.langs.svelte-js").setup(theme.colors)
 
 	theme.highlights = vim.tbl_deep_extend(
 		"error",
@@ -24,8 +26,10 @@ function M.setup()
 		haskell,
 		rust,
 		html,
+		css,
 		javascript,
-		typescript
+		typescript,
+		svelteJS
 	)
 
 	-- print("hello world")
