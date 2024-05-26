@@ -18,6 +18,7 @@ function M.setup()
 	local typescript = require("karakurt.syntax.langs.typescript").setup(theme.colors)
 	local tsx = require("karakurt.syntax.langs.tsx").setup(theme.colors)
 	local svelteJS = require("karakurt.syntax.langs.svelte-js").setup(theme.colors)
+	local cpp = require("karakurt.syntax.langs.cpp").setup(theme.colors)
 
 	local bufferline = require("karakurt.syntax.plugins.bufferline").setup(theme.colors)
 
@@ -28,6 +29,7 @@ function M.setup()
 		baseCode,
 		haskell,
 		rust,
+		cpp,
 		html,
 		css,
 		javascript,
